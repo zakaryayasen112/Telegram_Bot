@@ -24,7 +24,7 @@ async def btn(update,context):
         if t=="mp3":
             opts={"format":"bestaudio","outtmpl":"dl.%(ext)s","postprocessors":[{"key":"FFmpegExtractAudio","preferredcodec":"mp3"}],"quiet":True}
         else:
-            opts={"format":f"best[height<={t}]","outtmpl":"dl.%(ext)s","quiet":True}
+            opts={"format":"best","outtmpl":"dl.%(ext)s","quiet":True}
         loop=asyncio.get_event_loop()
         def dl():
             with yt_dlp.YoutubeDL(opts) as y:
